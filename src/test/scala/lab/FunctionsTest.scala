@@ -59,3 +59,4 @@ class FunctionsTest:
 
   @Test def testCompositionGeneric(): Unit =
     assertEquals(9, composeGeneric[Int, Int, Int](_ - 1, _ * 2)(5))
+    assertEquals("a1", composeGeneric[Int, String, String](_.toLowerCase, "A" + _)(1))

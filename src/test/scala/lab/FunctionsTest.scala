@@ -37,19 +37,25 @@ class FunctionsTest:
     assertTrue(notZero(2))
     assertFalse(notZero(0))
     assertTrue(notZero(2) && !notZero(0))
-    
+
   @Test def testNonCurriedPredicateLiteral(): Unit =
     assertTrue(nonCurriedPredicateLiteral(2, 3, true))
     assertFalse(nonCurriedPredicateLiteral(2, 3, false))
-    
+
   @Test def testCurriedPredicateLiteral(): Unit =
     assertTrue(curriedPredicateLiteral(2, 3)(true))
-    assertFalse(curriedPredicateLiteral(2, 3)(false))    
-  
+    assertFalse(curriedPredicateLiteral(2, 3)(false))
+
   @Test def testNonCurriedPredicateMethod(): Unit =
     assertTrue(nonCurriedPredicateMethod(2, 3, true))
     assertFalse(nonCurriedPredicateMethod(2, 3, false))
-    
+
   @Test def testCurriedPredicateMethod(): Unit =
     assertTrue(curriedPredicateMethod(2, 3)(true))
     assertFalse(curriedPredicateMethod(2, 3)(false))
+
+  @Test def testComposition(): Unit =
+    assertEquals(9, compose(_ - 1, _ * 2)(5))
+
+  @Test def testCompositionGeneric(): Unit =
+    assertEquals(9, composeGeneric[Int, Int, Int](_ - 1, _ * 2)(5))

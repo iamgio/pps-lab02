@@ -28,3 +28,11 @@ val curriedPredicateLiteral: (Int, Int) => (Boolean => Boolean) =
 def nonCurriedPredicateMethod(x: Int, y: Int, z: Boolean) = x <= y == z
 
 def curriedPredicateMethod(x: Int, y: Int)(z: Boolean) = x <= y == z
+
+// Compose
+
+def compose(f: Int => Int, g: Int => Int): Int => Int =
+  x => f(g(x))
+  
+def composeGeneric[F, G, O](f: F => O, g: G => F): G => O =
+  x => f(g(x))

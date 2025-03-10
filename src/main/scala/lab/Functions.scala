@@ -37,4 +37,5 @@ def compose(f: Int => Int, g: Int => Int): Int => Int =
 def composeGeneric[A, B, C](f: B => C, g: A => B): A => C =
   x => f(g(x))
 
-//def composeThree[A, B, C, D](f: C => D, g: B => C, h: A => B): A => D =
+def composeThree[A, B, C, D](f: C => D, g: B => C, h: A => B): A => D =
+  composeGeneric(f, x => g(h(x)))

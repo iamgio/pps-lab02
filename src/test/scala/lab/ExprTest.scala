@@ -1,5 +1,6 @@
 package lab
 
+import lab.Expr.*
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

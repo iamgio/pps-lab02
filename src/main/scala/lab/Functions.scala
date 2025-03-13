@@ -12,7 +12,7 @@ def positiveMethod(x: Int) = x match
 
 // Neg
 
-val negLiteral: (String => Boolean) => (String => Boolean) = predicate => !predicate(_)
+val negLiteral: (String => Boolean) => String => Boolean = predicate => !predicate(_)
 
 def negMethod(predicate: String => Boolean): String => Boolean = !predicate(_)
 

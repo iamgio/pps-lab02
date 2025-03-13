@@ -21,7 +21,7 @@ object Lab2 extends App:
 
   val nonCurriedPredicateLiteral: (Int, Int, Boolean) => Boolean = _ <= _ == _
 
-  val curriedPredicateLiteral: (Int, Int) => (Boolean => Boolean) =
+  val curriedPredicateLiteral: (Int, Int) => Boolean => Boolean =
     (x, y) => z => x <= y == z
 
   def nonCurriedPredicateMethod(x: Int, y: Int, z: Boolean) = x <= y == z

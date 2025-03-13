@@ -2,7 +2,7 @@ package task5
 
 import org.junit.*
 import org.junit.Assert.*
-import Optionals.*
+import task5.Optionals.*
 
 class OptionalTest:
   @Test def emptyOptionalShouldBeEmpty(): Unit = {
@@ -36,4 +36,16 @@ class OptionalTest:
     val nonEmpty = Optional.Maybe(0)
     val result = Optional.map(nonEmpty, _ + 1)
     assertEquals(1, Optional.orElse(result, 1))
+  }
+
+  @Test def filterShouldKeepValue(): Unit = {
+    val nonZero = Optional.Maybe(10)
+    val result = Optional.filter(nonZero, _ != 0)
+    assertEquals(nonZero, result)
+  }
+
+  @Test def filterShouldNotKeepValue(): Unit = {
+    val zero = Optional.Maybe(0)
+    val result = Optional.filter(zero, _ != 0)
+    assertTrue(Optional.isEmpty(result))
   }
